@@ -1,7 +1,0 @@
-.covince-timeline-button {
-  @apply pl-3 pr-1 h-9 md:pl-2 md:pr-0.5 md:h-7;
-}
-
-.covince-timeline-button svg {
-  @apply text-gray-400 w-6 h-6 md:w-5 md:h-5;
-}

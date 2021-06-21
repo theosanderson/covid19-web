@@ -1,28 +1,32 @@
-import React, { lazy, useRef } from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import React, { lazy, useRef } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-import DataProvider from './components/DataProvider'
+import DataProvider from "./components/DataProvider";
 
-const UI = lazy(() => import('./components/UI'))
+import "./Covince.css";
 
-const twentyFourHoursInMs = 1000 * 60 * 60 * 24
+const UI = lazy(() => import("./components/UI"));
+
+const twentyFourHoursInMs = 1000 * 60 * 60 * 24;
 
 const CovInce = ({
-  data_url = './data',
-  tiles_url = './tiles/Local_Authority_Districts__December_2019__Boundaries_UK_BUC.json',
+  data_url = "./data",
+  tiles_url = "./tiles/Local_Authority_Districts__December_2019__Boundaries_UK_BUC.json",
   disableQueryParamURLs = false,
   ...props
 }) => {
-  const queryClient = useRef(new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-        refetchOnmount: false,
-        refetchOnReconnect: false,
-        staleTime: twentyFourHoursInMs * 100
-      }
-    }
-  }))
+  const queryClient = useRef(
+    new QueryClient({
+      defaultOptions: {
+        queries: {
+          refetchOnWindowFocus: false,
+          refetchOnmount: false,
+          refetchOnReconnect: false,
+          staleTime: twentyFourHoursInMs * 100,
+        },
+      },
+    })
+  );
 
   return (
     <QueryClientProvider client={queryClient.current}>
@@ -34,7 +38,7 @@ const CovInce = ({
         <UI {...props} />
       </DataProvider>
     </QueryClientProvider>
-  )
-}
+  );
+};
 
-export default CovInce
+export default CovInce;

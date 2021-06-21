@@ -1,9 +1,0 @@
-.covince-styled-select {
-  background-position: right theme('spacing.1') center;
-}
-
-@screen lg {
-  .covince-styled-select {
-    background-position: right theme('spacing.2') center;
-  }
-}
